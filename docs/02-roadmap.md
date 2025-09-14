@@ -177,9 +177,9 @@
 
 - **Step 5.1: “Face-to-Face” Comparative Evaluation**
 
-  - **Action:** Create an evaluation script where you give the same prompt to Model v1, Model v2 (DPO), and Model v2 with RAG. Show their responses side-by-side.
+  - **Action:** Create an evaluation script where you give the same prompt to multiple model versions: the base model, the SFT model (v1), the DPO model (v2), the DPO model with RAG, and potentially an MoE-based model. Show their responses side-by-side.
 
-  - *Note: Use a set of test prompts that the model has not seen during training to get an honest evaluation of its performance. The comparison should highlight the improvements from SFT, DPO, and RAG.*
+  - *Note: Use a set of test prompts that the model has not seen during training to get an honest evaluation of its performance. The comparison should highlight the improvements from SFT, DPO, RAG, and the potential benefits of using an MoE architecture.*
 
 - **Step 5.2: Final Project Documentation**
 

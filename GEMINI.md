@@ -16,6 +16,12 @@ To ensure the model provides the most current and factually accurate information
 
 When a query is received, the RAG system first retrieves relevant information from a specialized database (e.g., the latest Rust documentation, crate specifications, or community tutorials). This retrieved context is then provided to the LLM along with the original prompt, enabling it to generate a response that is anchored in fresh, verifiable data. This approach drastically reduces "hallucinations" and allows the model to answer questions about very recent or specific topics without needing to be constantly retrained.
 
+## Mixture of Experts (MoE)
+
+To build a highly capable model while maintaining computational efficiency, this project will explore a Mixture of Experts (MoE) architecture. In an MoE model, multiple specialized "expert" sub-networks exist, and a gating network dynamically selects the most relevant experts to process each part of the input.
+
+This approach allows the model to scale its parameter count significantly without proportionally increasing the computational cost for inference. For each token, only a fraction of the total parameters are activated, leading to faster and more efficient training and inference compared to dense models of equivalent size. This is particularly beneficial for creating a powerful and responsive Rust code generation assistant.
+
 ## Building and Running
 
 The project is in its early stages, and the full build and run process is not yet established. However, the development environment will be based on Python.

@@ -84,3 +84,5 @@ The model's development will follow a progressive, multi-stage MVP release plan.
 
 1. Perform supervised fine-tuning (SFT) 10 times for the same base model. The goal is to validate whether, despite the same base model and input data, it generates different weights, creating a very different model, or ultimately generates the same models.
 2. Use different base models in terms of companies, parameter sizes, and model type to perform supervised fine-tuning (SFT) and investigate which one is best for testing.
+3. Compare the performance and efficiency of a fine-tuned dense model against a fine-tuned Mixture of Experts (MoE) model. This experiment will assess the trade-offs in training cost, inference speed, and response quality between the two architectures.
+del type to perform supervised fine-tuning (SFT) and investigate which one is best for testing.
