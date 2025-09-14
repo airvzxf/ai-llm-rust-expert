@@ -19,13 +19,55 @@ Part of the ambitious goals is to be able to build an extremely complex system w
 To see the roadmap visit the page [02 Roadmap](02-roadmap.md).
 
 ### Planning MVP releases
-1. The model creates code in basic Rust: it uses if, else, else if, for, and while statements in the “main” function. It also uses “Cargo.toml” and execution instructions. All generated code must run without any problems.
-2. Create functions to organize the code.
-3. Use modules to organize the code.
-4. Use traits to organize the code.
-5. Use crates in the proyect.
-6. Integrate Retrieval-Augmented Generation (RAG) to provide the model with access to external knowledge bases, such as the latest Rust documentation, official books, and popular crates.
-7. [Further objectives pending].
+
+The model's development will follow a progressive, multi-stage MVP release plan. Each stage builds upon the last, ensuring a solid foundation before moving to more complex features. The core principle is that all generated code must be 100% executable and idiomatic.
+
+1. **MVP 0.1: Core Concepts**
+   * **Goal:** Generate basic, single-file Rust programs that are guaranteed to compile and run.
+   * **Features:**
+     * `main` function with fundamental control flow (`if`, `else`, `for`, `while`).
+     * Basic data types (integers, floats, booleans, strings, tuples, arrays).
+     * Variable declaration (`let`, `mut`).
+     * Generation of a minimal `Cargo.toml` and `cargo run` instructions.
+
+2. **MVP 0.2: Code Organization**
+   * **Goal:** Introduce structured and reusable code.
+   * **Features:**
+     * Refactor logic into functions with parameters and return values.
+     * Organize code into multiple files using the module system (`mod`).
+     * Introduce basic error handling with `Option` and `Result`.
+
+3. **MVP 0.3: Data Modeling**
+   * **Goal:** Define and manage complex data structures.
+   * **Features:**
+     * Define and instantiate `structs` and `enums`.
+     * Implement methods and associated functions in `impl` blocks.
+
+4. **MVP 0.4: Abstraction**
+   * **Goal:** Implement polymorphism and generic, reusable code.
+   * **Features:**
+     * Define and implement `traits`.
+     * Use generics with functions, structs, and traits.
+     * Utilize common standard library traits (e.g., `Debug`, `Clone`, `Copy`).
+
+5. **MVP 0.5: Ecosystem Integration**
+   * **Goal:** Interact with the broader Rust ecosystem.
+   * **Features:**
+       * Add and manage external crates in `Cargo.toml`.
+       * Use items from third-party libraries (e.g., `serde`, `rand`, `regex`).
+
+6. **MVP 0.6: Advanced Features**
+   * **Goal:** Handle concurrency and other advanced Rust capabilities.
+   * **Features:**
+       * Safe concurrency using `std::thread`, channels (`mpsc`), `Arc`, and `Mutex`.
+       * (Cautiously) generate `unsafe` code for well-defined use cases like FFI, with clear explanations.
+       * Generate basic declarative macros (`macro_rules!`).
+
+7. **MVP 0.7: Real-Time Knowledge**
+   * **Goal:** Provide up-to-date, contextually aware answers and code.
+   * **Features:**
+       * Integrate Retrieval-Augmented Generation (RAG) to access the latest Rust documentation, crate information, and community best practices.
+       * Answer questions about recent language features and provide crate recommendations based on fresh data.
 
 ### Dataset objectives.
 
