@@ -53,21 +53,28 @@ The model's development will follow a progressive, multi-stage MVP release plan.
 5. **MVP 0.5: Ecosystem Integration**
    * **Goal:** Interact with the broader Rust ecosystem.
    * **Features:**
-       * Add and manage external crates in `Cargo.toml`.
-       * Use items from third-party libraries (e.g., `serde`, `rand`, `regex`).
+     * Add and manage external crates in `Cargo.toml`.
+     * Use items from third-party libraries (e.g., `serde`, `rand`, `regex`).
 
 6. **MVP 0.6: Advanced Features**
    * **Goal:** Handle concurrency and other advanced Rust capabilities.
    * **Features:**
-       * Safe concurrency using `std::thread`, channels (`mpsc`), `Arc`, and `Mutex`.
-       * (Cautiously) generate `unsafe` code for well-defined use cases like FFI, with clear explanations.
-       * Generate basic declarative macros (`macro_rules!`).
+     * Safe concurrency using `std::thread`, channels (`mpsc`), `Arc`, and `Mutex`.
+     * (Cautiously) generate `unsafe` code for well-defined use cases like FFI, with clear explanations.
+     * Generate basic declarative macros (`macro_rules!`).
 
 7. **MVP 0.7: Real-Time Knowledge**
    * **Goal:** Provide up-to-date, contextually aware answers and code.
    * **Features:**
-       * Integrate Retrieval-Augmented Generation (RAG) to access the latest Rust documentation, crate information, and community best practices.
-       * Answer questions about recent language features and provide crate recommendations based on fresh data.
+     * Integrate Retrieval-Augmented Generation (RAG) to access the latest Rust documentation, crate information, and community best practices.
+     * Answer questions about recent language features and provide crate recommendations based on fresh data.
+
+8. **MVP 0.8: Code Analysis and Feedback**
+   * **Goal:** Analyze existing Rust code to provide feedback and explain errors.
+   * **Features:**
+     * Explain common Rust compiler errors (e.g., lifetime issues, borrow checker violations) with examples.
+     * Suggest idiomatic refactorings (e.g., replacing `for` loops with iterators, improving error handling).
+     * Identify potential performance pitfalls or anti-patterns in a given code snippet.
 
 ### Dataset objectives.
 
