@@ -10,6 +10,12 @@ The development strategy involves two main phases:
 
 The project is currently in the initial planning and environment setup phase (Phase 0). The detailed objectives and a comprehensive 8-week roadmap are documented in the `docs` directory.
 
+## Retrieval-Augmented Generation (RAG)
+
+To ensure the model provides the most current and factually accurate information, the project incorporates a Retrieval-Augmented Generation (RAG) architecture. Unlike training methods that internalize knowledge, RAG connects the LLM to an external, real-time knowledge source.
+
+When a query is received, the RAG system first retrieves relevant information from a specialized database (e.g., the latest Rust documentation, crate specifications, or community tutorials). This retrieved context is then provided to the LLM along with the original prompt, enabling it to generate a response that is anchored in fresh, verifiable data. This approach drastically reduces "hallucinations" and allows the model to answer questions about very recent or specific topics without needing to be constantly retrained.
+
 ## Building and Running
 
 The project is in its early stages, and the full build and run process is not yet established. However, the development environment will be based on Python.

@@ -24,7 +24,8 @@ To see the roadmap visit the page [02 Roadmap](02-roadmap.md).
 3. Use modules to organize the code.
 4. Use traits to organize the code.
 5. Use crates in the proyect.
-6. [Further objectives pending].
+6. Integrate Retrieval-Augmented Generation (RAG) to provide the model with access to external knowledge bases, such as the latest Rust documentation, official books, and popular crates.
+7. [Further objectives pending].
 
 ### Dataset objectives.
 
