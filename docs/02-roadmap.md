@@ -156,38 +156,67 @@
 
 -----
 
-### **Phase 4: Retrieval-Augmented Generation (RAG) Integration (Week 7)**
+### **Phase 4: Mixture of Experts (MoE) Architecture (Weeks 8-9)**
 
-- **Step 4.1: Vector Database and Retriever Setup**
+- **Goal:** To build a more powerful and efficient model by training multiple specialized "expert" sub-networks instead of a single monolithic one.
+
+- **Step 4.1: Definition of Expert Roles**
+  - **Action:** Define the specific roles for each expert. Based on the project's objectives, we can define roles like:
+    - **Architect Expert:** Focuses on high-level design, project structure, module organization, and API definitions.
+    - **Implementer/Worker Expert:** Specializes in writing efficient, idiomatic code for specific functions, algorithms, and logic.
+    - **Refactoring/Idiomatic Expert:** Trained to identify and suggest improvements to existing code to make it more idiomatic.
+  - *Note: The clear definition of these roles is fundamental to guide the specialized training of each expert.*
+
+- **Step 4.2: Curation of Specialized Datasets**
+  - **Action:** From the main SFT dataset, create smaller, specialized datasets for each expert. For example, for the Architect Expert, filter examples that involve project setup, `Cargo.toml`, and module definitions.
+  - *Note: The quality and specialization of these datasets will determine the effectiveness of each expert.*
+
+- **Step 4.3: Training of Individual Expert Models**
+  - **Action:** Use the SFT v1 model as a base and fine-tune each expert on its specialized dataset. This will result in multiple expert models.
+  - *Note: This step can be parallelized to speed up development.*
+
+- **Step 4.4: Implementation and Training of the Gating Network**
+  - **Action:** Implement a small neural network (the "gating network") that takes a prompt and decides which expert(s) to route it to. Train this network on the full dataset, using the expert specializations as labels.
+  - *Note: The gating network is the brain of the MoE. Its efficiency is critical to avoid activating unnecessary experts and thus maintain low inference costs.*
+
+- **Step 4.5: Assembly and Evaluation of the MoE Model**
+  - **Action:** Combine the trained experts and the gating network into a single MoE architecture using libraries that support it (like `transformers`). Perform an initial evaluation to ensure it works as expected.
+  - *Note: This model represents a significant architectural milestone and will be compared against the dense model in the final evaluation phase.*
+
+-----
+
+### **Phase 5: Retrieval-Augmented Generation (RAG) Integration (Week 10)**
+
+- **Step 5.1: Vector Database and Retriever Setup**
   - **Action:** Choose and set up a vector database (e.g., ChromaDB, FAISS). Implement a retrieval mechanism that takes a user query and finds the most relevant text chunks.
   - *Note: The efficiency of the retriever is key. Start with a simple keyword-based search or a pre-trained sentence-transformer model to create embeddings.*
 
-- **Step 4.2: Knowledge Base Ingestion**
+- **Step 5.2: Knowledge Base Ingestion**
   - **Action:** Write scripts to process and load the knowledge sources into the vector database.
   - **Sources:** The Rust Programming Language Book, Rustonomicon, Tokio tutorial, and documentation of the top 20 most popular crates.
   - *Note: Chunking is important. Documents must be split into small, coherent pieces to be useful for the retriever.*
 
-- **Step 4.3: Pipeline Integration**
+- **Step 5.3: Pipeline Integration**
   - **Action:** Modify the inference pipeline so that prompts are first sent to the retriever. The retrieved context is then prepended to the original prompt before being passed to the Expert Model v2 (from DPO).
   - *Note: This combines the expert reasoning of the DPO model with the factual, up-to-date knowledge from the RAG system.*
 
 -----
 
-### **Phase 5: Final Evaluation and Closing (Week 8)**
+### **Phase 6: Final Evaluation and Closing (Week 11)**
 
-- **Step 5.1: “Face-to-Face” Comparative Evaluation**
+- **Step 6.1: “Face-to-Face” Comparative Evaluation**
 
-  - **Action:** Create an evaluation script where you give the same prompt to multiple model versions: the base model, the SFT model (v1), the DPO model (v2), the DPO model with RAG, and potentially an MoE-based model. Show their responses side-by-side.
+  - **Action:** Create an evaluation script where you give the same prompt to multiple model versions: the base model, the SFT model (v1), the DPO model (v2), the DPO model with RAG, and the MoE-based model. Show their responses side-by-side.
 
-  - *Note: Use a set of test prompts that the model has not seen during training to get an honest evaluation of its performance. The comparison should highlight the improvements from SFT, DPO, RAG, and the potential benefits of using an MoE architecture.*
+  - *Note: Use a set of test prompts that the model has not seen during training to get an honest evaluation of its performance. The comparison should highlight the improvements from SFT, DPO, RAG, and the MoE architecture.*
 
-- **Step 5.2: Final Project Documentation**
+- **Step 6.2: Final Project Documentation**
 
-  - **Action:** Update the `README.md` of your GitHub repository. Describe the complete process, the challenges you faced, the decisions you made, and the results obtained. Include examples of the improvements between v1, v2, and v2+RAG.
+  - **Action:** Update the `README.md` of your GitHub repository. Describe the complete process, the challenges you faced, the decisions you made, and the results obtained. Include examples of the improvements between v1, v2, v2+RAG, and the MoE model.
 
   - *Note: A well-documented project is a top-level portfolio piece that demonstrates not only technical skill but also methodological rigor.*
 
-- **Step 5.3: (Optional) Creation of an Interactive Demo**
+- **Step 6.3: (Optional) Creation of an Interactive Demo**
 
   - **Action:** Use libraries like `Gradio` or `Streamlit` to build a simple web interface where others can interact with your model. You can host it for free on Hugging Face Spaces.
 

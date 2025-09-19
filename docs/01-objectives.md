@@ -76,6 +76,13 @@ The model's development will follow a progressive, multi-stage MVP release plan.
      * Suggest idiomatic refactorings (e.g., replacing `for` loops with iterators, improving error handling).
      * Identify potential performance pitfalls or anti-patterns in a given code snippet.
 
+9. **MVP 0.9: Specialization with Mixture of Experts (MoE)**
+   * **Goal:** Improve performance and efficiency by developing a model with specialized sub-networks.
+   * **Features:**
+     * Implement a MoE architecture with distinct expert models (e.g., "Architect Expert" for code structure, "Implementer Expert" for algorithms).
+     * Train a gating network that dynamically routes user prompts to the most suitable expert.
+     * The model should be able to handle complex queries by breaking them down and leveraging the appropriate expert for each sub-task.
+
 ### Dataset objectives.
 
 1. Generate a good repository of training data (SFT dataset) for use in this or other projects.
@@ -84,5 +91,7 @@ The model's development will follow a progressive, multi-stage MVP release plan.
 
 1. Perform supervised fine-tuning (SFT) 10 times for the same base model. The goal is to validate whether, despite the same base model and input data, it generates different weights, creating a very different model, or ultimately generates the same models.
 2. Use different base models in terms of companies, parameter sizes, and model type to perform supervised fine-tuning (SFT) and investigate which one is best for testing.
-3. Compare the performance and efficiency of a fine-tuned dense model against a fine-tuned Mixture of Experts (MoE) model. This experiment will assess the trade-offs in training cost, inference speed, and response quality between the two architectures.
-del type to perform supervised fine-tuning (SFT) and investigate which one is best for testing.
+3. Compare the performance and efficiency of a fine-tuned dense model against a fine-tuned Mixture of Experts (MoE) model. This experiment will involve:
+   - Training specialized "expert" models (e.g., an "architect" for high-level structure, an "implementer" for detailed coding).
+   - Developing a gating network to route queries to the appropriate expert.
+   - Assessing the trade-offs in training cost, inference speed, and response quality between the dense and MoE architectures.
