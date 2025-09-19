@@ -30,8 +30,8 @@ The project is in its early stages, and the full build and run process is not ye
 
 1.  **Create a Python virtual environment:**
     ```bash
-    python -m venv rust_llm_env
-    source rust_llm_env/bin/activate
+    python -m venv .venv
+    source .venv/bin/activate
     ```
 
 2.  **Install key dependencies:**

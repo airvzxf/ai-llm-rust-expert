@@ -33,7 +33,7 @@
 
   - **Action:** On your machine, create a Python virtual environment.
 
-  - **Commands:** `python -m venv rust_llm_env`, `source rust_llm_env/bin/activate`.
+  - **Commands:** `python -m venv .venv`, `source .venv/bin/activate`.
 
   - **Key Installations:** `pip install transformers datasets accelerate bitsandbytes peft trl jupyterlab`
 
