@@ -1,0 +1,20 @@
+{
+  "source": "github", // or "stackoverflow", "rust-book"
+  "instruction": "El texto que describe la tarea o pregunta.",
+  "response": "El bloque de código Rust que es la respuesta.",
+  "metadata": { // Extra useful information for healing
+    "rust_version_tested": "1.90.0",
+    "repo_url": "...",
+    "file_path": "...",
+  }
+}
+{
+  "source": "israel-roldan-manually",
+  "instruction": "Prints the text \"Hello, world!\" on the screen.",
+  "response": "fn main() {\n    print!(\"Hello, world! It is a text\");\n}",
+  "metadata": {
+    "rust_version_tested": "1.90.0",
+    "repo_url": "https://github.com/airvzxf/ai-dataset-rust",
+    "file_path": "blob/main/README.md",
+  }
+}
